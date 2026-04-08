@@ -19,227 +19,103 @@
   --brd:#1c1c2a;
 }
 html{scroll-behavior:smooth}
-body{
-  font-family:'Outfit',sans-serif;
-  background:var(--bg);
-  color:var(--tx);
-  line-height:1.6;
-}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6}
 
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1rem 2rem;
-  display:flex;justify-content:space-between;align-items:center;
-  backdrop-filter:blur(16px);
-  background:rgba(8,8,12,.9);
-  border-bottom:1px solid var(--brd);
+  padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;
+  backdrop-filter:blur(16px);background:rgba(8,8,12,.9);border-bottom:1px solid var(--brd);
 }
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2rem;
-  background:linear-gradient(135deg,var(--ac),var(--ac2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-r{display:flex;gap:1.8rem;align-items:center}
 .nav-r a{color:var(--tx2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .3s}
 .nav-r a:hover{color:var(--ac)}
-.nav-cta{
-  background:var(--ac)!important;color:var(--bg)!important;
-  padding:.5rem 1.2rem;border-radius:99px;font-weight:700!important;font-size:.82rem!important;
-  transition:transform .3s,box-shadow .3s!important;
-}
+.nav-cta{background:var(--ac)!important;color:var(--bg)!important;padding:.5rem 1.2rem;border-radius:99px;font-weight:700!important;font-size:.82rem!important;transition:transform .3s,box-shadow .3s!important}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(92,255,149,.25)}
 
-/* WRAP */
-.wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+.w{max-width:1100px;margin:0 auto;padding:0 2rem}
 
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding-top:6rem;position:relative;
-}
-.badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.35rem .9rem;border:1px solid var(--brd);border-radius:99px;
-  font-size:.78rem;color:var(--ac);font-weight:500;width:fit-content;margin-bottom:1.8rem;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:6rem;position:relative}
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border:1px solid var(--brd);border-radius:99px;font-size:.78rem;color:var(--ac);font-weight:500;width:fit-content;margin-bottom:1.8rem}
 .dot{width:6px;height:6px;background:var(--ac);border-radius:50%;animation:pulse 2s infinite}
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.2rem,8.5vw,6.5rem);
-  line-height:.95;letter-spacing:.02em;margin-bottom:1.4rem;
-}
-.hl{
-  background:linear-gradient(135deg,var(--ac),var(--ac2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.hero p{
-  font-size:1.05rem;color:var(--tx2);max-width:480px;
-  line-height:1.7;margin-bottom:2.2rem;
-}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,8.5vw,6.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:1.4rem}
+.hl{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.05rem;color:var(--tx2);max-width:480px;line-height:1.7;margin-bottom:2.2rem}
 .btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-p{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--ac);color:var(--bg);
-  padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;
-  font-weight:700;font-size:.9rem;transition:transform .3s,box-shadow .3s;
-}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--ac);color:var(--bg);padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.9rem;transition:transform .3s,box-shadow .3s}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(92,255,149,.25)}
-.btn-s{
-  display:inline-flex;align-items:center;gap:.5rem;
-  border:1px solid var(--brd);color:var(--tx);
-  padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;
-  font-weight:500;font-size:.9rem;transition:border-color .3s,background .3s;
-}
+.btn-s{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--brd);color:var(--tx);padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;font-weight:500;font-size:.9rem;transition:border-color .3s,background .3s}
 .btn-s:hover{border-color:var(--ac);background:rgba(92,255,149,.08)}
-.orb{
-  position:absolute;right:-5%;top:18%;width:420px;height:420px;
-  background:radial-gradient(circle,rgba(92,255,149,.2),transparent 70%);
-  border-radius:50%;filter:blur(80px);pointer-events:none;
-}
+.orb{position:absolute;right:-5%;top:18%;width:420px;height:420px;background:radial-gradient(circle,rgba(92,255,149,.2),transparent 70%);border-radius:50%;filter:blur(80px);pointer-events:none}
 
-/* SECTIONS */
 section{padding:5rem 0}
-.label{
-  font-family:'Bebas Neue',sans-serif;font-size:1rem;
-  letter-spacing:.2em;color:var(--ac);margin-bottom:.6rem;
-}
-.stitle{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1.8rem,4.5vw,3rem);
-  letter-spacing:.02em;margin-bottom:2.5rem;line-height:1;
-}
+.label{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.2em;color:var(--ac);margin-bottom:.6rem}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4.5vw,3rem);letter-spacing:.02em;margin-bottom:2.5rem;line-height:1}
 hr{border:none;height:1px;background:var(--brd);margin:0}
 
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 .ab-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;margin-bottom:.2rem}
 .ab-role{color:var(--ac);font-size:.85rem;font-weight:600;margin-bottom:1.3rem}
 .about-grid p{color:var(--tx2);font-size:.93rem;line-height:1.75;margin-bottom:1rem}
 .about-grid p strong{color:var(--tx);font-weight:600}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.st{
-  background:var(--card);border:1px solid var(--brd);border-radius:12px;
-  padding:1.3rem;text-align:center;transition:border-color .3s;
-}
+.st{background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:1.3rem;text-align:center;transition:border-color .3s}
 .st:hover{border-color:var(--ac)}
-.st-n{
-  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;
-  background:linear-gradient(135deg,var(--ac),var(--ac2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  line-height:1;margin-bottom:.2rem;
-}
+.st-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:.2rem}
 .st-l{color:var(--tx2);font-size:.78rem;font-weight:500}
 
-/* SERVICES */
 .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
-.srv{
-  background:var(--card);border:1px solid var(--brd);border-radius:14px;
-  padding:1.8rem;transition:transform .3s,border-color .3s,background .3s;
-  position:relative;overflow:hidden;
-}
+.srv{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:1.8rem;transition:transform .3s,border-color .3s,background .3s;position:relative;overflow:hidden}
 .srv:hover{transform:translateY(-3px);border-color:var(--ac);background:var(--card-h)}
-.srv::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--ac),var(--ac2));
-  opacity:0;transition:opacity .3s;
-}
+.srv::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ac),var(--ac2));opacity:0;transition:opacity .3s}
 .srv:hover::after{opacity:1}
-.srv-ico{
-  width:44px;height:44px;border-radius:10px;
-  background:rgba(92,255,149,.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:1rem;
-}
+.srv-ico{width:44px;height:44px;border-radius:10px;background:rgba(92,255,149,.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
 .srv h3{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.04em;margin-bottom:.4rem}
 .srv p{color:var(--tx2);font-size:.86rem;line-height:1.6}
-.srv-pr{
-  margin-top:1rem;font-family:'Bebas Neue',sans-serif;
-  font-size:1.4rem;letter-spacing:.03em;color:var(--ac);
-}
+.srv-pr{margin-top:1rem;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.03em;color:var(--ac)}
 .srv-pr span{font-size:.82rem;color:var(--tx2);font-family:'Outfit',sans-serif;font-weight:400}
 
-/* PROJECTS */
 .pj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
-.pj{
-  border:1px solid var(--brd);border-radius:14px;overflow:hidden;
-  background:var(--card);transition:transform .3s,border-color .3s;
-}
-a.pj{display:block}
+.pj{border:1px solid var(--brd);border-radius:14px;overflow:hidden;background:var(--card);transition:transform .3s,border-color .3s}
+a.pj{display:block;text-decoration:none;color:inherit}
 .pj:hover{transform:translateY(-3px);border-color:var(--ac)}
-.pj-img{
-  height:200px;display:flex;align-items:center;justify-content:center;
-}
-.pj-img span{
-  font-family:'Bebas Neue',sans-serif;font-size:2rem;
-  opacity:.1;letter-spacing:.15em;
-}
+.pj-img{height:200px;display:flex;align-items:center;justify-content:center}
+.pj-img span{font-family:'Bebas Neue',sans-serif;font-size:2rem;opacity:.12;letter-spacing:.15em}
 .pj-img.t1{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364)}
 .pj-img.t2{background:linear-gradient(135deg,#1a1a2e,rgba(233,69,96,.6))}
 .pj-img.t3{background:linear-gradient(135deg,#0a192f,rgba(92,255,149,.12))}
 .pj-img.t4{background:linear-gradient(135deg,#2d1b69,#6c5ce7)}
 .pj-body{padding:1.4rem}
 .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem}
-.tags span{
-  font-size:.68rem;padding:.18rem .6rem;border-radius:99px;
-  border:1px solid var(--brd);color:var(--tx2);font-weight:500;
-}
+.tags span{font-size:.68rem;padding:.18rem .6rem;border-radius:99px;border:1px solid var(--brd);color:var(--tx2);font-weight:500}
 .pj-body h3{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.04em;margin-bottom:.3rem}
 .pj-body p{color:var(--tx2);font-size:.83rem;line-height:1.5}
 
-/* PROCESS */
-.steps{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:2rem;counter-reset:s;
-}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2rem;counter-reset:s}
 .stp{counter-increment:s}
-.stp::before{
-  content:counter(s,decimal-leading-zero);
-  font-family:'Bebas Neue',sans-serif;font-size:3.2rem;
-  background:linear-gradient(135deg,var(--ac),var(--ac2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  opacity:.22;display:block;line-height:1;margin-bottom:.5rem;
-}
+.stp::before{content:counter(s,decimal-leading-zero);font-family:'Bebas Neue',sans-serif;font-size:3.2rem;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.22;display:block;line-height:1;margin-bottom:.5rem}
 .stp h3{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.04em;margin-bottom:.4rem}
 .stp p{color:var(--tx2);font-size:.84rem;line-height:1.6}
 
-/* CTA */
 .cta{text-align:center;padding:5rem 0}
-.cta h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2rem,5vw,3.5rem);
-  letter-spacing:.02em;margin-bottom:.8rem;line-height:1;
-}
+.cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:.02em;margin-bottom:.8rem;line-height:1}
 .cta p{color:var(--tx2);font-size:.95rem;margin-bottom:2rem;max-width:440px;margin-inline:auto}
 .cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.btn-w{
-  background:#25D366;color:#fff;
-  padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;
-  font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.5rem;
-  transition:transform .3s,box-shadow .3s;
-}
+.btn-w{background:#25D366;color:#fff;padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.5rem;transition:transform .3s,box-shadow .3s}
 .btn-w:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.25)}
 
-/* FOOTER */
-footer{
-  border-top:1px solid var(--brd);padding:1.8rem 2rem;
-  text-align:center;color:var(--tx2);font-size:.8rem;
-}
+footer{border-top:1px solid var(--brd);padding:1.8rem 2rem;text-align:center;color:var(--tx2);font-size:.8rem}
 footer a{color:var(--ac);text-decoration:none}
 
-/* FADE IN */
 .fi{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .fi.v{opacity:1;transform:translateY(0)}
 
-/* ANIMATIONS */
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:.8rem 1.2rem}
   .nav-r a:not(.nav-cta){display:none}
-  .wrap{padding:0 1.2rem}
+  .w{padding:0 1.2rem}
   .hero{padding-top:5rem}
   .orb{width:250px;height:250px;right:-10%;top:8%}
   .about-grid{grid-template-columns:1fr;gap:2rem}
@@ -260,21 +136,19 @@ footer a{color:var(--ac);text-decoration:none}
   </div>
 </nav>
 
-<div class="wrap">
+<div class="w">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="orb"></div>
-    <div class="badge"><span class="dot"></span> Disponível para novos projetos</div>
-    <h1>SITES QUE FAZEM<br>SEU NEGÓCIO <span class="hl">VENDER MAIS.</span></h1>
-    <p>Crio landing pages e sites rápidos, modernos e focados em uma coisa: transformar visitantes em clientes reais para o seu negócio.</p>
-    <div class="btns">
+    <div class="badge fi"><span class="dot"></span> Disponível para novos projetos</div>
+    <h1 class="fi">SITES QUE FAZEM<br>SEU NEGÓCIO <span class="hl">VENDER MAIS.</span></h1>
+    <p class="fi">Crio landing pages e sites rápidos, modernos e focados em uma coisa: transformar visitantes em clientes reais para o seu negócio.</p>
+    <div class="btns fi">
       <a href="https://wa.me/5527999408858?text=Ol%C3%A1%21+Vi+seu+portf%C3%B3lio+e+gostaria+de+um+or%C3%A7amento." class="btn-p">💬 Pedir orçamento</a>
       <a href="#projetos" class="btn-s">Ver projetos ↓</a>
     </div>
   </div>
 
-  <!-- SOBRE -->
   <section id="sobre">
     <div class="label fi">SOBRE</div>
     <h2 class="stitle fi">POR QUE GG?</h2>
@@ -298,7 +172,6 @@ footer a{color:var(--ac);text-decoration:none}
 
   <hr>
 
-  <!-- SERVIÇOS -->
   <section id="servicos">
     <div class="label fi">SERVIÇOS</div>
     <h2 class="stitle fi">O QUE EU POSSO CRIAR PRA VOCÊ</h2>
@@ -326,7 +199,6 @@ footer a{color:var(--ac);text-decoration:none}
 
   <hr>
 
-  <!-- PROJETOS -->
   <section id="projetos">
     <div class="label fi">PROJETOS</div>
     <h2 class="stitle fi">TRABALHOS RECENTES</h2>
@@ -339,7 +211,7 @@ footer a{color:var(--ac);text-decoration:none}
           <p>Plataforma SaaS completa com landing page, dashboard e integração com inteligência artificial.</p>
         </div>
       </div>
-      <a href="clinica.html" class="pj fi" style="text-decoration:none;color:inherit">
+      <a href="clinica.html" class="pj fi">
         <div class="pj-img t1"><span>CLÍNICA</span></div>
         <div class="pj-body">
           <div class="tags"><span>Saúde</span><span>Landing Page</span></div>
@@ -347,7 +219,7 @@ footer a{color:var(--ac);text-decoration:none}
           <p>Landing page de alta conversão para clínica odontológica, focada em agendamento online.</p>
         </div>
       </a>
-      <a href="hamburgueria.html" class="pj fi" style="text-decoration:none;color:inherit">
+      <a href="hamburgueria.html" class="pj fi">
         <div class="pj-img t2"><span>BRASA</span></div>
         <div class="pj-body">
           <div class="tags"><span>Gastronomia</span><span>Cardápio Digital</span></div>
@@ -355,7 +227,7 @@ footer a{color:var(--ac);text-decoration:none}
           <p>Site com cardápio digital interativo, combos, burger 3D e botão direto pro WhatsApp de pedidos.</p>
         </div>
       </a>
-      <a href="loja-tech.html" class="pj fi" style="text-decoration:none;color:inherit">
+      <a href="loja-tech.html" class="pj fi">
         <div class="pj-img t4"><span>NEXTECH</span></div>
         <div class="pj-body">
           <div class="tags"><span>E-commerce</span><span>Landing Page</span></div>
@@ -368,7 +240,6 @@ footer a{color:var(--ac);text-decoration:none}
 
   <hr>
 
-  <!-- PROCESSO -->
   <section id="processo">
     <div class="label fi">PROCESSO</div>
     <h2 class="stitle fi">COMO FUNCIONA</h2>
@@ -392,20 +263,35 @@ footer a{color:var(--ac);text-decoration:none}
     </div>
   </section>
 
-  <!-- CTA -->
   <div class="cta">
     <h2 class="fi">PRONTO PRA TER UM SITE<br>QUE <span class="hl">REALMENTE FUNCIONA?</span></h2>
     <p class="fi">Me manda uma mensagem e vamos conversar sobre o seu projeto. Orçamento sem compromisso.</p>
     <div class="cta-btns fi">
       <a href="https://wa.me/5527999408858?text=Ol%C3%A1%21+Vi+seu+portf%C3%B3lio+e+gostaria+de+um+or%C3%A7amento." class="btn-w">📱 Chamar no WhatsApp</a>
-      <a href="/cdn-cgi/l/email-protection#2a42594d5f434346426a4d474b434604494547" class="btn-s">✉️ Enviar e-mail</a>
+      <a id="email-btn" href="#" class="btn-s">✉️ Enviar e-mail</a>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 GG. Guilherme Guedes — Desenvolvedor Web · <a href="/cdn-cgi/l/email-protection#701803170519191c1830171d11191c5e131f1d"><span class="__cf_email__" data-cfemail="523a2135273b3b3e3a12353f333b3e7c313d3f">[email&#160;protected]</span></a></p>
+  <p>© 2026 GG. Guilherme Guedes — Desenvolvedor Web · <a id="email-footer" href="#">hsguiilh at gmail</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudfl
+<script>
+// Fade in observer
+var o=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('v');o.unobserve(i.target)}})},{threshold:0.1});
+document.querySelectorAll('.fi').forEach(function(el){o.observe(el)});
+
+// Protect email from scrapers/cloudflare
+(function(){
+  var u='hsguiilh';var d='gmail.com';var e=u+'@'+d;
+  var a=document.getElementById('email-btn');
+  var f=document.getElementById('email-footer');
+  if(a)a.href='mai'+'lto:'+e;
+  if(f){f.href='mai'+'lto:'+e;f.textContent=e}
+})();
+</script>
+
+</body>
+</html>
