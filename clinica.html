@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Sorrir — Odontologia Moderna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafbfd;
+  --white:#ffffff;
+  --blue:#1a5ccc;
+  --blue-l:#e8f0fe;
+  --blue-d:#0f3d8c;
+  --navy:#0c1b3a;
+  --tx:#1e293b;
+  --tx2:#64748b;
+  --mint:#10b981;
+  --brd:#e2e8f0;
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--tx);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:.9rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--brd);
+}
+.n-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:700;color:var(--blue);
+}
+.n-logo span{color:var(--mint)}
+.n-links{display:flex;gap:1.8rem;align-items:center}
+.n-links a{
+  color:var(--tx2);text-decoration:none;font-size:.85rem;
+  font-weight:600;transition:color .3s;
+}
+.n-links a:hover{color:var(--blue)}
+.n-btn{
+  background:var(--blue)!important;color:#fff!important;
+  padding:.5rem 1.2rem;border-radius:99px;
+  font-weight:700!important;font-size:.82rem!important;
+  transition:background .3s,transform .3s!important;
+}
+.n-btn:hover{background:var(--blue-d)!important;transform:translateY(-1px)}
+
+/* WRAP */
+.w{max-width:1100px;margin:0 auto;padding:0 2rem}
+
+/* HERO */
+.hero{
+  padding:8rem 0 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+}
+.hero-txt h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4.5vw,3.4rem);
+  line-height:1.15;color:var(--navy);
+  margin-bottom:1.2rem;
+}
+.hero-txt h1 span{color:var(--blue)}
+.hero-txt p{
+  font-size:1.02rem;color:var(--tx2);
+  max-width:440px;line-height:1.7;margin-bottom:2rem;
+}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-a{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--blue);color:#fff;
+  padding:.75rem 1.6rem;border-radius:99px;text-decoration:none;
+  font-weight:700;font-size:.88rem;
+  transition:background .3s,transform .3s;
+}
+.btn-a:hover{background:var(--blue-d);transform:translateY(-2px)}
+.btn-b{
+  display:inline-flex;align-items:center;gap:.4rem;
+  border:2px solid var(--brd);color:var(--tx);
+  padding:.7rem 1.6rem;border-radius:99px;text-decoration:none;
+  font-weight:600;font-size:.88rem;
+  transition:border-color .3s;
+}
+.btn-b:hover{border-color:var(--blue)}
+.hero-visual{
+  background:linear-gradient(135deg,var(--blue-l),#dbeafe);
+  border-radius:20px;height:380px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-visual::before{
+  content:'';position:absolute;width:200px;height:200px;
+  background:rgba(26,92,204,.1);border-radius:50%;
+  top:-40px;right:-40px;
+}
+.hero-visual::after{
+  content:'';position:absolute;width:150px;height:150px;
+  background:rgba(16,185,129,.08);border-radius:50%;
+  bottom:-30px;left:-30px;
+}
+.hv-icon{font-size:5rem;opacity:.6}
+.trust-bar{
+  display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;
+}
+.trust-item{display:flex;align-items:center;gap:.5rem}
+.trust-item .check{
+  width:22px;height:22px;background:var(--mint);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;flex-shrink:0;
+}
+.trust-item span{font-size:.82rem;color:var(--tx2);font-weight:500}
+
+/* SECTIONS */
+section{padding:5rem 0}
+.s-label{
+  font-size:.78rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--blue);margin-bottom:.5rem;
+}
+.s-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  color:var(--navy);margin-bottom:.6rem;line-height:1.15;
+}
+.s-desc{color:var(--tx2);font-size:.95rem;max-width:500px;margin-bottom:2.5rem}
+hr{border:none;height:1px;background:var(--brd)}
+
+/* SERVICES */
+.srv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.sc{
+  background:var(--white);border:1px solid var(--brd);border-radius:var(--radius);
+  padding:1.8rem;transition:transform .3s,box-shadow .3s;
+}
+.sc:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(26,92,204,.08)}
+.sc-ico{
+  width:48px;height:48px;border-radius:10px;background:var(--blue-l);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:1rem;
+}
+.sc h3{font-size:1rem;font-weight:700;margin-bottom:.3rem;color:var(--navy)}
+.sc p{color:var(--tx2);font-size:.84rem;line-height:1.6}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.why-img{
+  background:linear-gradient(135deg,#dbeafe,var(--blue-l));
+  border-radius:16px;height:340px;
+  display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.5;
+}
+.why-list{display:flex;flex-direction:column;gap:1.5rem}
+.wl{display:flex;gap:1rem;align-items:start}
+.wl-n{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;flex-shrink:0;
+}
+.wl h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.2rem}
+.wl p{color:var(--tx2);font-size:.84rem;line-height:1.5}
+
+/* TESTIMONIALS */
+.test-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.tc{
+  background:var(--white);border:1px solid var(--brd);border-radius:var(--radius);
+  padding:1.6rem;position:relative;
+}
+.tc::before{
+  content:'"';font-family:'Playfair Display',serif;
+  font-size:3.5rem;color:var(--blue-l);position:absolute;top:.5rem;left:1.2rem;
+  line-height:1;
+}
+.tc-txt{
+  color:var(--tx2);font-size:.88rem;line-height:1.7;
+  font-style:italic;margin-bottom:1rem;padding-top:1.5rem;
+}
+.tc-author{display:flex;align-items:center;gap:.6rem}
+.tc-av{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--blue-l);display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;color:var(--blue);
+}
+.tc-name{font-size:.82rem;font-weight:700;color:var(--navy)}
+.tc-role{font-size:.72rem;color:var(--tx2)}
+.stars{color:#f59e0b;font-size:.75rem;margin-bottom:.5rem;letter-spacing:2px}
+
+/* CTA */
+.cta-box{
+  background:linear-gradient(135deg,var(--blue),var(--blue-d));
+  border-radius:20px;padding:3.5rem 2.5rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;width:300px;height:300px;
+  background:rgba(255,255,255,.05);border-radius:50%;
+  top:-100px;right:-80px;
+}
+.cta-box h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  color:#fff;margin-bottom:.6rem;line-height:1.2;
+}
+.cta-box p{color:rgba(255,255,255,.8);font-size:.95rem;margin-bottom:2rem;max-width:440px;margin-inline:auto}
+.btn-w{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#25D366;color:#fff;
+  padding:.8rem 1.8rem;border-radius:99px;text-decoration:none;
+  font-weight:700;font-size:.9rem;
+  transition:transform .3s,box-shadow .3s;
+}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.3)}
+
+/* FOOTER */
+footer{
+  padding:2rem;text-align:center;
+  color:var(--tx2);font-size:.78rem;
+  border-top:1px solid var(--brd);margin-top:2rem;
+}
+
+/* FADE */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:.8rem 1.2rem}
+  .n-links a:not(.n-btn){display:none}
+  .w{padding:0 1.2rem}
+  .hero{grid-template-columns:1fr;padding:6.5rem 0 3rem}
+  .hero-visual{height:240px}
+  .why-grid{grid-template-columns:1fr}
+  .why-img{height:220px}
+  .trust-bar{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="n-logo">Clínica Sorrir<span>.</span></div>
+  <div class="n-links">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#agendar" class="n-btn">Agendar consulta</a>
+  </div>
+</nav>
+
+<div class="w">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-txt">
+      <h1 class="fi">Seu sorriso merece o <span>melhor cuidado.</span></h1>
+      <p class="fi">Odontologia moderna, humanizada e com tecnologia de ponta. Agende sua avaliação e descubra o tratamento ideal pra você.</p>
+      <div class="hero-btns fi">
+        <a href="#agendar" class="btn-a">📅 Agendar avaliação</a>
+        <a href="#servicos" class="btn-b">Ver serviços</a>
+      </div>
+      <div class="trust-bar fi">
+        <div class="trust-item"><div class="check">✓</div><span>+2.000 pacientes</span></div>
+        <div class="trust-item"><div class="check">✓</div><span>12 anos de experiência</span></div>
+        <div class="trust-item"><div class="check">✓</div><span>Avaliação gratuita</span></div>
+      </div>
+    </div>
+    <div class="hero-visual fi">
+      <div class="hv-icon">🦷</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="s-label fi">SERVIÇOS</div>
+    <div class="s-title fi">Tratamentos para cada necessidade</div>
+    <p class="s-desc fi">Da limpeza de rotina ao implante, cuidamos de tudo com atenção e tecnologia.</p>
+    <div class="srv-g">
+      <div class="sc fi">
+        <div class="sc-ico">😁</div>
+        <h3>Clareamento dental</h3>
+        <p>Dentes mais brancos em até 1 sessão. Resultados visíveis e duradouros com segurança total.</p>
+      </div>
+      <div class="sc fi">
+        <div class="sc-ico">🔧</div>
+        <h3>Implantes</h3>
+        <p>Recupere dentes perdidos com implantes modernos. Planejamento digital e recuperação rápida.</p>
+      </div>
+      <div class="sc fi">
+        <div class="sc-ico">✨</div>
+        <h3>Lentes de contato</h3>
+        <p>Transforme seu sorriso com lentes ultrafinas. Design digital personalizado para cada paciente.</p>
+      </div>
+      <div class="sc fi">
+        <div class="sc-ico">🦷</div>
+        <h3>Ortodontia</h3>
+        <p>Aparelhos tradicionais e alinhadores invisíveis. Correção do sorriso com conforto e discrição.</p>
+      </div>
+      <div class="sc fi">
+        <div class="sc-ico">🩺</div>
+        <h3>Check-up completo</h3>
+        <p>Avaliação detalhada com radiografia digital. Prevenção é o melhor tratamento que existe.</p>
+      </div>
+      <div class="sc fi">
+        <div class="sc-ico">👶</div>
+        <h3>Odontopediatria</h3>
+        <p>Cuidado especial e acolhedor para os pequenos. Ambiente pensado para crianças se sentirem seguras.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- POR QUE NÓS -->
+  <section id="sobre">
+    <div class="s-label fi">POR QUE NÓS</div>
+    <div class="s-title fi">Mais que uma clínica, uma experiência.</div>
+    <p class="s-desc fi">Cada detalhe foi pensado pro seu conforto — do atendimento à tecnologia.</p>
+    <div class="why-grid">
+      <div class="why-img fi">🏥</div>
+      <div class="why-list">
+        <div class="wl fi">
+          <div class="wl-n">1</div>
+          <div>
+            <h4>Tecnologia de ponta</h4>
+            <p>Scanner 3D, radiografia digital e planejamento computadorizado pra resultados precisos.</p>
+          </div>
+        </div>
+        <div class="wl fi">
+          <div class="wl-n">2</div>
+          <div>
+            <h4>Atendimento humanizado</h4>
+            <p>Ouvimos você com calma. Cada tratamento é explicado em detalhes antes de começar.</p>
+          </div>
+        </div>
+        <div class="wl fi">
+          <div class="wl-n">3</div>
+          <div>
+            <h4>Ambiente acolhedor</h4>
+            <p>Espaço moderno e confortável, pensado pra você se sentir em casa desde a recepção.</p>
+          </div>
+        </div>
+        <div class="wl fi">
+          <div class="wl-n">4</div>
+          <div>
+            <h4>Facilidade no pagamento</h4>
+            <p>Parcelamos em até 12x no cartão. Aceitamos convênios e oferecemos desconto à vista.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="s-label fi">DEPOIMENTOS</div>
+    <div class="s-title fi">O que nossos pacientes dizem</div>
+    <p class="s-desc fi">A melhor propaganda é o sorriso de quem já passou por aqui.</p>
+    <div class="test-g">
+      <div class="tc fi">
+        <div class="stars">★★★★★</div>
+        <div class="tc-txt">Fiz o clareamento e ficou incrível! Equipe super atenciosa, me explicaram tudo passo a passo. Recomendo de olhos fechados.</div>
+        <div class="tc-author">
+          <div class="tc-av">MR</div>
+          <div><div class="tc-name">Mariana Ribeiro</div><div class="tc-role">Paciente há 3 anos</div></div>
+        </div>
+      </div>
+      <div class="tc fi">
+        <div class="stars">★★★★★</div>
+        <div class="tc-txt">Tinha pavor de dentista, mas aqui me senti super tranquilo. O Dr. Lucas tem uma paciência enorme. Voltei a sorrir com confiança!</div>
+        <div class="tc-author">
+          <div class="tc-av">CF</div>
+          <div><div class="tc-name">Carlos Ferreira</div><div class="tc-role">Implante + lentes</div></div>
+        </div>
+      </div>
+      <div class="tc fi">
+        <div class="stars">★★★★★</div>
+        <div class="tc-txt">Levo meus dois filhos e eles adoram! O espaço infantil é lindo e as dentistas tratam as crianças com muito carinho.</div>
+        <div class="tc-author">
+          <div class="tc-av">AS</div>
+          <div><div class="tc-name">Ana Santos</div><div class="tc-role">Mãe de Pedro e Luísa</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="agendar">
+    <div class="cta-box fi">
+      <h2>Pronto pra transformar seu sorriso?</h2>
+      <p>Agende sua avaliação gratuita pelo WhatsApp. É rápido, sem burocracia e sem compromisso.</p>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." class="btn-w">📱 Agendar pelo WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Clínica Sorrir — Odontologia Moderna · Todos os direitos reservados</p>
+  <p style="margin-top:.3rem;font-size:.72rem;opacity:.6">Site fictício criado como demonstração de portfólio por GG.</p>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('v');o.unobserve(i.target)}})},{threshold:.15});
+document.querySelectorAll('.fi').forEach(el=>o.observe(el));
+</script>
+
+</body>
+</html>

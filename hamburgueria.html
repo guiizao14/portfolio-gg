@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasa Burger — Hambúrgueres Artesanais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0c0a08;
+  --card:#161210;
+  --card-h:#1e1a16;
+  --tx:#f5f0eb;
+  --tx2:#8a7e72;
+  --fire:#f97316;
+  --fire2:#fb923c;
+  --fire-g:rgba(249,115,22,.12);
+  --red:#dc2626;
+  --yellow:#eab308;
+  --brd:#2a2420;
+  --cream:#fef3c7;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(12,10,8,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--brd);
+}
+.logo{font-family:'Dela Gothic One',sans-serif;font-size:1.4rem;color:var(--fire)}
+.logo span{color:var(--yellow)}
+.nav-r{display:flex;gap:1.8rem;align-items:center}
+.nav-r a{color:var(--tx2);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .3s}
+.nav-r a:hover{color:var(--fire)}
+.nav-btn{
+  background:var(--fire)!important;color:#fff!important;
+  padding:.5rem 1.2rem;border-radius:99px;font-weight:700!important;font-size:.82rem!important;
+  transition:background .3s,transform .3s,box-shadow .3s!important;
+}
+.nav-btn:hover{background:var(--fire2)!important;transform:translateY(-1px);box-shadow:0 4px 20px rgba(249,115,22,.3)}
+
+.w{max-width:1100px;margin:0 auto;padding:0 2rem}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:6rem;position:relative;text-align:center;
+}
+.hero-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(249,115,22,.12),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(60px);pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.4rem;margin:0 auto 1.5rem;
+  padding:.35rem .9rem;border:1px solid var(--brd);border-radius:99px;
+  font-size:.75rem;color:var(--fire);font-weight:600;background:var(--fire-g);
+}
+.hero h1{
+  font-family:'Dela Gothic One',sans-serif;
+  font-size:clamp(2.5rem,7vw,5rem);
+  line-height:1;margin-bottom:1.2rem;
+}
+.hero h1 .hl{color:var(--fire)}
+.hero>p{color:var(--tx2);font-size:1.05rem;max-width:500px;margin:0 auto 2.2rem;line-height:1.7}
+.hero-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn-a{
+  display:inline-flex;align-items:center;gap:.4rem;background:var(--fire);color:#fff;
+  padding:.8rem 1.8rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.9rem;
+  transition:background .3s,transform .3s,box-shadow .3s;
+}
+.btn-a:hover{background:var(--fire2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(249,115,22,.3)}
+.btn-b{
+  display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--brd);color:var(--tx);
+  padding:.8rem 1.8rem;border-radius:99px;text-decoration:none;font-weight:600;font-size:.9rem;
+  transition:border-color .3s,background .3s;
+}
+.btn-b:hover{border-color:var(--fire);background:var(--fire-g)}
+
+/* 3D BURGER HERO */
+.burger-scene{
+  margin:3rem auto 0;width:200px;height:200px;
+  perspective:800px;position:relative;
+}
+.burger-3d{
+  width:200px;height:200px;position:relative;
+  transform-style:preserve-3d;
+  animation:burgerFloat 5s ease-in-out infinite;
+}
+.bun-top{
+  width:160px;height:50px;border-radius:80px 80px 8px 8px;
+  background:linear-gradient(180deg,#d4880a,#b8720a,#a66208);
+  position:absolute;top:20px;left:20px;
+  transform:translateZ(30px);
+  box-shadow:0 -2px 0 rgba(255,255,255,.15) inset,0 10px 30px rgba(0,0,0,.4);
+}
+.bun-top::before{
+  content:'';position:absolute;width:8px;height:8px;border-radius:50%;
+  background:#f5deb3;top:10px;left:30px;
+  box-shadow:25px 5px 0 #f5deb3,55px -2px 0 #f5deb3,80px 6px 0 #f5deb3,105px 0 0 #f5deb3,15px 15px 0 #f5deb3,70px 18px 0 #f5deb3;
+}
+.lettuce{
+  width:170px;height:16px;position:absolute;top:68px;left:15px;
+  transform:translateZ(25px);overflow:visible;
+}
+.lettuce::before{
+  content:'';display:block;width:180px;height:18px;
+  background:linear-gradient(90deg,#22c55e,#16a34a,#22c55e,#15803d,#22c55e);
+  border-radius:0 0 50% 50%/0 0 100% 100%;
+  clip-path:polygon(0% 0%,5% 80%,10% 20%,18% 90%,25% 10%,32% 85%,40% 15%,48% 90%,55% 5%,62% 80%,70% 20%,78% 85%,85% 10%,92% 80%,100% 0%);
+}
+.cheese{
+  width:165px;height:14px;position:absolute;top:82px;left:18px;
+  transform:translateZ(22px);
+}
+.cheese::before{
+  content:'';display:block;width:175px;height:14px;
+  background:linear-gradient(180deg,#fbbf24,#f59e0b);
+  border-radius:2px;
+  clip-path:polygon(0% 0%,100% 0%,100% 60%,95% 100%,85% 60%,75% 100%,65% 55%,55% 100%,45% 60%,35% 100%,25% 55%,15% 100%,5% 60%,0% 100%);
+}
+.patty{
+  width:155px;height:28px;border-radius:8px;
+  background:linear-gradient(180deg,#5c3317,#3d1f0d,#2d1508);
+  position:absolute;top:92px;left:22px;
+  transform:translateZ(18px);
+  box-shadow:0 4px 12px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.05) inset;
+}
+.patty::after{
+  content:'';position:absolute;width:100%;height:4px;top:4px;left:0;
+  background:linear-gradient(90deg,transparent,rgba(249,115,22,.2),transparent);
+  border-radius:4px;
+}
+.tomato{
+  width:150px;height:12px;position:absolute;top:118px;left:25px;
+  transform:translateZ(14px);display:flex;gap:4px;
+}
+.tomato::before,.tomato::after{
+  content:'';width:48%;height:12px;border-radius:6px;
+  background:linear-gradient(180deg,#ef4444,#dc2626);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.15);
+}
+.onion{
+  width:140px;height:10px;position:absolute;top:128px;left:30px;
+  transform:translateZ(10px);
+}
+.onion::before{
+  content:'';display:block;width:100%;height:10px;
+  background:repeating-linear-gradient(90deg,transparent,transparent 8px,rgba(216,180,254,.6) 8px,rgba(216,180,254,.6) 12px);
+  border-radius:5px;
+}
+.bun-bottom{
+  width:160px;height:36px;border-radius:6px 6px 60px 60px;
+  background:linear-gradient(180deg,#c47a0a,#a66208,#8b5206);
+  position:absolute;top:136px;left:20px;
+  transform:translateZ(6px);
+  box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+.burger-shadow{
+  width:180px;height:20px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(249,115,22,.15),transparent 70%);
+  position:absolute;bottom:-5px;left:10px;
+  animation:shadowPulse 5s ease-in-out infinite;
+}
+
+/* SECTIONS */
+section{padding:5rem 0}
+.s-lab{font-family:'Dela Gothic One',sans-serif;font-size:.85rem;letter-spacing:.12em;color:var(--fire);margin-bottom:.5rem}
+.s-tit{font-family:'Dela Gothic One',sans-serif;font-size:clamp(1.5rem,4vw,2.4rem);margin-bottom:.5rem;line-height:1.1}
+.s-desc{color:var(--tx2);font-size:.92rem;max-width:480px;margin-bottom:2.5rem}
+hr{border:none;height:1px;background:var(--brd)}
+
+/* MENU GRID */
+.menu-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.mc{
+  background:var(--card);border:1px solid var(--brd);border-radius:14px;
+  padding:1.5rem;display:flex;gap:1.2rem;align-items:center;
+  transition:transform .3s,border-color .3s,background .3s;
+}
+.mc:hover{transform:translateY(-3px);border-color:var(--fire);background:var(--card-h)}
+.mc-visual{
+  width:80px;height:80px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.mc-visual::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 0 20px rgba(0,0,0,.4);
+}
+.mc-visual.v1{background:linear-gradient(135deg,#3d1f0d,#5c3317)}
+.mc-visual.v2{background:linear-gradient(135deg,#1a3d0d,#2d5c17)}
+.mc-visual.v3{background:linear-gradient(135deg,#3d0d0d,#5c1717)}
+.mc-visual.v4{background:linear-gradient(135deg,#3d2e0d,#5c4517)}
+.mc-visual.v5{background:linear-gradient(135deg,#0d1a3d,#172d5c)}
+.mc-visual.v6{background:linear-gradient(135deg,#3d0d2e,#5c1745)}
+.mc-visual.v7{background:linear-gradient(135deg,#2a1a0a,#4a3018)}
+.mc-visual.v8{background:linear-gradient(135deg,#0d3d2e,#175c45)}
+
+/* Mini burger icons in the circles */
+.mini-b{
+  width:40px;height:32px;position:relative;
+  transform-style:preserve-3d;
+}
+.mini-b .mb-top{
+  width:40px;height:12px;border-radius:20px 20px 2px 2px;
+  background:linear-gradient(180deg,#d4880a,#a66208);
+  position:absolute;top:0;
+  box-shadow:0 1px 0 rgba(255,255,255,.15) inset;
+}
+.mini-b .mb-fill{
+  width:38px;height:8px;position:absolute;top:10px;left:1px;border-radius:2px;
+}
+.mini-b .mb-bot{
+  width:40px;height:10px;border-radius:2px 2px 16px 16px;
+  background:linear-gradient(180deg,#b8720a,#8b5206);
+  position:absolute;bottom:0;
+}
+.fill-classic{background:linear-gradient(180deg,#5c3317,#3d1f0d)}
+.fill-green{background:linear-gradient(180deg,#22c55e,#16a34a)}
+.fill-red{background:linear-gradient(180deg,#ef4444,#dc2626)}
+.fill-yellow{background:linear-gradient(180deg,#fbbf24,#f59e0b)}
+.fill-blue{background:linear-gradient(180deg,#3b82f6,#2563eb)}
+.fill-pink{background:linear-gradient(180deg,#ec4899,#db2777)}
+.fill-brown{background:linear-gradient(180deg,#78350f,#5c2a0d)}
+.fill-teal{background:linear-gradient(180deg,#14b8a6,#0d9488)}
+
+.mc-info{flex:1}
+.mc-info h3{font-family:'Dela Gothic One',sans-serif;font-size:1rem;margin-bottom:.2rem}
+.mc-info p{color:var(--tx2);font-size:.8rem;line-height:1.5;margin-bottom:.5rem}
+.mc-bottom{display:flex;justify-content:space-between;align-items:center}
+.mc-price{font-family:'Dela Gothic One',sans-serif;font-size:1.15rem;color:var(--fire)}
+.mc-tag{
+  font-size:.62rem;padding:.15rem .5rem;border-radius:99px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.tag-hot{background:rgba(220,38,38,.2);color:#ef4444}
+.tag-new{background:rgba(234,179,8,.2);color:#eab308}
+.tag-top{background:rgba(249,115,22,.2);color:var(--fire)}
+
+/* COMBOS */
+.combo-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.combo{
+  background:var(--card);border:1px solid var(--brd);border-radius:14px;
+  padding:1.6rem;text-align:center;transition:transform .3s,border-color .3s;
+  position:relative;overflow:hidden;
+}
+.combo:hover{transform:translateY(-3px);border-color:var(--fire)}
+.combo::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--fire),var(--yellow));
+  opacity:0;transition:opacity .3s;
+}
+.combo:hover::after{opacity:1}
+.combo-emoji{font-size:2.5rem;margin-bottom:.8rem;display:block}
+.combo h3{font-family:'Dela Gothic One',sans-serif;font-size:1.05rem;margin-bottom:.3rem}
+.combo p{color:var(--tx2);font-size:.82rem;line-height:1.5;margin-bottom:.8rem}
+.combo-price{font-family:'Dela Gothic One',sans-serif;font-size:1.4rem;color:var(--fire)}
+.combo-price span{font-size:.8rem;color:var(--tx2);font-family:'DM Sans',sans-serif;font-weight:400}
+.combo-save{
+  display:inline-block;margin-top:.5rem;font-size:.7rem;font-weight:700;
+  color:var(--yellow);background:rgba(234,179,8,.1);
+  padding:.2rem .6rem;border-radius:99px;
+}
+
+/* INFO */
+.info-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.ic{
+  background:var(--card);border:1px solid var(--brd);border-radius:14px;
+  padding:1.5rem;transition:border-color .3s;
+}
+.ic:hover{border-color:var(--fire)}
+.ic-emoji{font-size:1.8rem;margin-bottom:.8rem;display:block}
+.ic h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem}
+.ic p{color:var(--tx2);font-size:.82rem;line-height:1.5}
+
+/* CTA */
+.cta-box{
+  background:linear-gradient(135deg,var(--fire),#c2410c);border-radius:20px;
+  padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;
+}
+.cta-box::before{content:'';position:absolute;width:300px;height:300px;background:rgba(255,255,255,.04);border-radius:50%;top:-100px;right:-80px}
+.cta-box h2{font-family:'Dela Gothic One',sans-serif;font-size:clamp(1.5rem,3.5vw,2.2rem);color:#fff;margin-bottom:.6rem;line-height:1.15}
+.cta-box p{color:rgba(255,255,255,.8);font-size:.92rem;margin-bottom:2rem;max-width:420px;margin-inline:auto}
+.btn-w{
+  display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;
+  padding:.8rem 1.8rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.88rem;
+  transition:transform .3s,box-shadow .3s;
+}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.3)}
+
+footer{border-top:1px solid var(--brd);padding:2rem;text-align:center;color:var(--tx2);font-size:.78rem}
+footer a{color:var(--fire);text-decoration:none}
+
+/* FADE */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fi.v{opacity:1;transform:translateY(0)}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes burgerFloat{0%,100%{transform:rotateY(-8deg) rotateX(5deg) translateY(0)}50%{transform:rotateY(4deg) rotateX(-3deg) translateY(-14px)}}
+@keyframes shadowPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(.85);opacity:.5}}
+
+@media(max-width:768px){
+  nav{padding:.8rem 1.2rem}
+  .nav-r a:not(.nav-btn){display:none}
+  .w{padding:0 1.2rem}
+  .hero{padding-top:5rem}
+  .menu-g,.combo-g{grid-template-columns:1fr}
+  .burger-scene{width:160px;height:160px}
+  .burger-3d{width:160px;height:160px}
+  .bun-top,.patty,.bun-bottom,.lettuce,.cheese,.tomato,.onion{transform:scale(.8);transform-origin:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">BRASA<span>.</span></div>
+  <div class="nav-r">
+    <a href="#cardapio">Cardápio</a>
+    <a href="#combos">Combos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#pedir" class="nav-btn">Pedir agora</a>
+  </div>
+</nav>
+
+<div class="w">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-tag fi">🔥 Aberto agora · Delivery até 23h</div>
+    <h1 class="fi">HAMBÚRGUER<br><span class="hl">ARTESANAL</span><br>DE VERDADE.</h1>
+    <p class="fi">Carne nobre, ingredientes frescos e muito sabor. Feito na brasa com amor e entregue quentinho na sua porta.</p>
+    <div class="hero-btns fi">
+      <a href="#pedir" class="btn-a">🍔 Pedir agora</a>
+      <a href="#cardapio" class="btn-b">Ver cardápio ↓</a>
+    </div>
+
+    <!-- 3D BURGER -->
+    <div class="burger-scene fi">
+      <div class="burger-3d">
+        <div class="bun-top"></div>
+        <div class="lettuce"></div>
+        <div class="cheese"></div>
+        <div class="patty"></div>
+        <div class="tomato"></div>
+        <div class="onion"></div>
+        <div class="bun-bottom"></div>
+        <div class="burger-shadow"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- CARDÁPIO -->
+  <section id="cardapio">
+    <div class="s-lab fi">CARDÁPIO</div>
+    <div class="s-tit fi">Nossos Hambúrgueres</div>
+    <p class="s-desc fi">Carne 100% bovina, blend da casa, grelhada na brasa. Escolha o seu.</p>
+    <div class="menu-g">
+
+      <div class="mc fi">
+        <div class="mc-visual v1"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-classic"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Brasa Clássico</h3>
+          <p>Blend 180g, queijo cheddar, alface, tomate, cebola roxa e molho da casa.</p>
+          <div class="mc-bottom"><span class="mc-price">R$28,90</span><span class="mc-tag tag-top">⭐ MAIS PEDIDO</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v2"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-green"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Green Monster</h3>
+          <p>Blend 180g, guacamole, rúcula, queijo brie, cebola caramelizada.</p>
+          <div class="mc-bottom"><span class="mc-price">R$34,90</span><span class="mc-tag tag-new">✨ NOVO</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v3"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-red"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Inferno Burger</h3>
+          <p>Blend 200g duplo, pimenta jalapeño, pepper jack, bacon crocante, molho chipotle.</p>
+          <div class="mc-bottom"><span class="mc-price">R$39,90</span><span class="mc-tag tag-hot">🔥 PICANTE</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v4"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-yellow"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Smash Duplo</h3>
+          <p>2x smash 90g, cheddar derretido, cebola crispy, picles, mostarda e ketchup.</p>
+          <div class="mc-bottom"><span class="mc-price">R$32,90</span><span class="mc-tag tag-top">⭐ TOP 3</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v5"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-blue"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Blue Cheese</h3>
+          <p>Blend 180g, gorgonzola cremoso, cebola roxa grelhada, rúcula e nozes.</p>
+          <div class="mc-bottom"><span class="mc-price">R$36,90</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v6"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-pink"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>BBQ Bacon Ranch</h3>
+          <p>Blend 200g, bacon artesanal, onion rings, cheddar, molho BBQ defumado.</p>
+          <div class="mc-bottom"><span class="mc-price">R$37,90</span><span class="mc-tag tag-hot">🔥 FAVORITO</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v7"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-brown"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Trufado Premium</h3>
+          <p>Blend angus 200g, creme de trufas, cogumelos salteados, gruyère, rúcula baby.</p>
+          <div class="mc-bottom"><span class="mc-price">R$44,90</span><span class="mc-tag tag-new">✨ CHEF</span></div>
+        </div>
+      </div>
+
+      <div class="mc fi">
+        <div class="mc-visual v8"><div class="mini-b"><div class="mb-top"></div><div class="mb-fill fill-teal"></div><div class="mb-bot"></div></div></div>
+        <div class="mc-info">
+          <h3>Veggie Brasa</h3>
+          <p>Hambúrguer de grão-de-bico, queijo muçarela, alface, tomate seco, pesto.</p>
+          <div class="mc-bottom"><span class="mc-price">R$29,90</span><span class="mc-tag tag-new">🌱 VEGGIE</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- COMBOS -->
+  <section id="combos">
+    <div class="s-lab fi">COMBOS</div>
+    <div class="s-tit fi">Peça completo e economize</div>
+    <p class="s-desc fi">Burger + batata + bebida. Melhor custo-benefício da região.</p>
+    <div class="combo-g">
+      <div class="combo fi">
+        <span class="combo-emoji">🍔</span>
+        <h3>Combo Solo</h3>
+        <p>1 burger à escolha + batata frita + refrigerante 350ml</p>
+        <div class="combo-price">R$39,90 <span>/ combo</span></div>
+        <span class="combo-save">Economize R$8</span>
+      </div>
+      <div class="combo fi">
+        <span class="combo-emoji">🍔🍔</span>
+        <h3>Combo Dupla</h3>
+        <p>2 burgers à escolha + batata grande + 2 refrigerantes</p>
+        <div class="combo-price">R$74,90 <span>/ combo</span></div>
+        <span class="combo-save">Economize R$18</span>
+      </div>
+      <div class="combo fi">
+        <span class="combo-emoji">🍔🍔🍔🍔</span>
+        <h3>Combo Família</h3>
+        <p>4 burgers à escolha + 2 batatas grandes + jarra de suco</p>
+        <div class="combo-price">R$139,90 <span>/ combo</span></div>
+        <span class="combo-save">Economize R$40</span>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="s-lab fi">SOBRE NÓS</div>
+    <div class="s-tit fi">Por que a Brasa é diferente?</div>
+    <p class="s-desc fi">Não é fast food. É hambúrguer feito com respeito ao sabor.</p>
+    <div class="info-g">
+      <div class="ic fi">
+        <span class="ic-emoji">🥩</span>
+        <h3>Carne fresca todo dia</h3>
+        <p>Blend moído diariamente com cortes nobres. Nada de carne congelada.</p>
+      </div>
+      <div class="ic fi">
+        <span class="ic-emoji">🔥</span>
+        <h3>Grelhado na brasa</h3>
+        <p>Sabor defumado natural que só a brasa de verdade consegue dar.</p>
+      </div>
+      <div class="ic fi">
+        <span class="ic-emoji">🧀</span>
+        <h3>Ingredientes premium</h3>
+        <p>Queijos especiais, pães artesanais e molhos feitos na casa.</p>
+      </div>
+      <div class="ic fi">
+        <span class="ic-emoji">🏍️</span>
+        <h3>Entrega em 40 min</h3>
+        <p>Delivery próprio pra chegar quentinho. Rastreio em tempo real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="pedir">
+    <div class="cta-box fi">
+      <h2>Bateu a fome?<br>Pede pelo WhatsApp!</h2>
+      <p>Manda mensagem, escolhe seu burger e recebe quentinho na sua porta. Simples assim.</p>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Quero+fazer+um+pedido!" class="btn-w">📱 Pedir pelo WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Brasa Burger — Hambúrgueres Artesanais · Todos os direitos reservados</p>
+  <p style="margin-top:.3rem;font-size:.72rem;opacity:.5">Site fictício criado como demonstração de portfólio por GG.</p>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('v');o.unobserve(i.target)}})},{threshold:.15});
+document.querySelectorAll('.fi').forEach(el=>o.observe(el));
+</script>
+
+</body>
+</html>
