@@ -107,6 +107,35 @@ a.pj{display:block;text-decoration:none;color:inherit}
 footer{border-top:1px solid var(--brd);padding:1.8rem 2rem;text-align:center;color:var(--tx2);font-size:.8rem}
 footer a{color:var(--ac);text-decoration:none}
 
+/* MODAL EMAIL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:flex-end;justify-content:flex-end;padding:1.5rem;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border:1px solid var(--brd);border-radius:16px;width:100%;max-width:380px;padding:1.8rem;position:relative;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--tx2);font-size:1.3rem;cursor:pointer;transition:color .3s;line-height:1}
+.modal-close:hover{color:var(--tx)}
+.modal h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.03em;margin-bottom:.3rem}
+.modal p{color:var(--tx2);font-size:.82rem;margin-bottom:1.2rem}
+.modal label{display:block;font-size:.75rem;font-weight:600;color:var(--tx2);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.08em}
+.modal input,.modal textarea{
+  width:100%;background:var(--bg);border:1px solid var(--brd);border-radius:8px;
+  padding:.6rem .8rem;color:var(--tx);font-family:'Outfit',sans-serif;font-size:.88rem;
+  margin-bottom:.8rem;outline:none;transition:border-color .3s;resize:vertical;
+}
+.modal input:focus,.modal textarea:focus{border-color:var(--ac)}
+.modal textarea{min-height:80px}
+.modal .modal-to{
+  width:100%;background:var(--bg);border:1px solid var(--brd);border-radius:8px;
+  padding:.6rem .8rem;color:var(--ac);font-family:'Outfit',sans-serif;font-size:.88rem;
+  margin-bottom:.8rem;
+}
+.modal-send{
+  width:100%;background:var(--ac);color:var(--bg);border:none;border-radius:99px;
+  padding:.7rem;font-weight:700;font-size:.9rem;cursor:pointer;
+  font-family:'Outfit',sans-serif;transition:background .3s,transform .3s;
+}
+.modal-send:hover{background:#4ddb80;transform:translateY(-1px)}
+
 .fi{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .fi.v{opacity:1;transform:translateY(0)}
 
@@ -203,14 +232,14 @@ footer a{color:var(--ac);text-decoration:none}
     <div class="label fi">PROJETOS</div>
     <h2 class="stitle fi">TRABALHOS RECENTES</h2>
     <div class="pj-grid">
-      <div class="pj fi">
+      <a href="https://datavy.com.br" target="_blank" rel="noopener" class="pj fi">
         <div class="pj-img t3"><span>DATAVY</span></div>
         <div class="pj-body">
           <div class="tags"><span>SaaS</span><span>Landing Page</span><span>Dashboard</span></div>
           <h3>DATAVY — ANALISTA DE DADOS COM IA</h3>
           <p>Plataforma SaaS completa com landing page, dashboard e integração com inteligência artificial.</p>
         </div>
-      </div>
+      </a>
       <a href="clinica.html" class="pj fi">
         <div class="pj-img t1"><span>CLÍNICA</span></div>
         <div class="pj-body">
@@ -274,22 +303,62 @@ footer a{color:var(--ac);text-decoration:none}
 
 </div>
 
+<!-- MODAL EMAIL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <h3>✉️ ENVIAR E-MAIL</h3>
+    <p>Preencha abaixo e clique em enviar. Seu app de email vai abrir com tudo pronto.</p>
+    <label>Para:</label>
+    <div class="modal-to" id="modal-to">carregando...</div>
+    <label>Seu e-mail:</label>
+    <input type="email" id="m-from" placeholder="seuemail@exemplo.com">
+    <label>Sua mensagem:</label>
+    <textarea id="m-msg">Olá Guilherme! Vi seu portfólio e gostaria de fazer um orçamento para meu projeto. Podemos conversar?</textarea>
+    <button class="modal-send" id="modal-send">Enviar e-mail →</button>
+  </div>
+</div>
+
 <footer>
   <p>© 2026 GG. Guilherme Guedes — Desenvolvedor Web · <a id="email-footer" href="#">hsguiilh at gmail</a></p>
 </footer>
 
 <script>
-// Fade in observer
+// Fade in
 var o=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('v');o.unobserve(i.target)}})},{threshold:0.1});
 document.querySelectorAll('.fi').forEach(function(el){o.observe(el)});
 
-// Protect email from scrapers/cloudflare
+// Email protection + modal
 (function(){
   var u='hsguiilh';var d='gmail.com';var e=u+'@'+d;
-  var a=document.getElementById('email-btn');
   var f=document.getElementById('email-footer');
-  if(a)a.href='mai'+'lto:'+e;
+  var mt=document.getElementById('modal-to');
   if(f){f.href='mai'+'lto:'+e;f.textContent=e}
+  if(mt)mt.textContent=e;
+
+  // Modal controls
+  var modal=document.getElementById('modal');
+  var btn=document.getElementById('email-btn');
+  var close=document.getElementById('modal-close');
+  var send=document.getElementById('modal-send');
+
+  if(btn)btn.addEventListener('click',function(ev){
+    ev.preventDefault();
+    modal.classList.add('open');
+  });
+  if(close)close.addEventListener('click',function(){
+    modal.classList.remove('open');
+  });
+  modal.addEventListener('click',function(ev){
+    if(ev.target===modal)modal.classList.remove('open');
+  });
+  if(send)send.addEventListener('click',function(){
+    var from=document.getElementById('m-from').value;
+    var msg=document.getElementById('m-msg').value;
+    var subject='Orçamento de site - Portfólio GG.';
+    var body=msg+'\n\n---\nEnviado por: '+from;
+    window.location.href='mai'+'lto:'+e+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
 })();
 </script>
 
