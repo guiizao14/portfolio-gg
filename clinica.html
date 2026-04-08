@@ -30,6 +30,15 @@ body{
   overflow-x:hidden;
 }
 
+.back-btn{
+  position:fixed;top:1rem;right:1rem;z-index:101;
+  background:rgba(26,92,204,.9);color:#fff;
+  padding:.45rem 1rem;border-radius:99px;text-decoration:none;
+  font-size:.78rem;font-weight:700;backdrop-filter:blur(8px);
+  transition:background .3s,transform .3s;
+}
+.back-btn:hover{background:var(--blue);transform:translateY(-1px)}
+
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -245,6 +254,8 @@ footer{
 </style>
 </head>
 <body>
+
+<a href="index.html" class="back-btn">← Voltar ao portfólio</a>
 
 <nav>
   <div class="n-logo">Clínica Sorrir<span>.</span></div>
